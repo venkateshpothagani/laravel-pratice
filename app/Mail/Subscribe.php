@@ -13,6 +13,7 @@ class Subscribe extends Mailable
     use Queueable, SerializesModels;
 
     public $email;
+    public $password;
 
     /**
      * Create a new message instance.

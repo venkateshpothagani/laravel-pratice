@@ -1,15 +1,19 @@
 <?php
 
+/**
+ *
+ */
+
 namespace App\Http\Controllers;
 
+use App\Mail\Subscribe;
 use App\Models\Customer;
-use App\Helpers\CustomValueGenerator;
 
 use Illuminate\Http\Request;
-use App\Mail\Subscribe;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\DB;
+use App\Helpers\CustomValueGenerator;
 
 class CustomerController extends Controller
 {
@@ -112,8 +116,8 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(int $id)
     {
-        //
+        return Customer::destroy($id);
     }
 }
