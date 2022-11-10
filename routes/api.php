@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ProductController;
 
@@ -37,3 +38,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 
 Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
+
+Route::resource('/customer', CustomerController::class);
