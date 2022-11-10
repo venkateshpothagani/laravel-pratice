@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,3 +40,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
 
 Route::resource('/customer', CustomerController::class);
+Route::resource('/site', SiteController::class);
