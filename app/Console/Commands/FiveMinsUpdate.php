@@ -38,7 +38,7 @@ class FiveMinsUpdate extends Command
         }
 
         $this->info('5 Mins Update has been send successfully');
-
+        info("send mail successfully");
 
         return Command::SUCCESS;
     }

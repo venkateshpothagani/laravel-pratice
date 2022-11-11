@@ -24,7 +24,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('five:update')->everyMinute();
+        if (windows_os()) {
+            info("RUNNING IN WINDOWS MACHINE");
+            $schedule->exec('start /b php artisan five:update')->everyMinute()->runInBackground();
+            $schedule->call(function () {
+                info("Hello world");
+            })->everyMinute();
+        } else {
+            $schedule->command('five:update')->everyMinute()->runInBackground();
+            $schedule->call(function () {
+                info("Hello world");
+            })->everyMinute();
+        }
     }
 
     /**
