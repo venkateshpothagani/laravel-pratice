@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\GetRecordController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SiteController;
@@ -41,3 +42,5 @@ Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
 
 Route::resource('/customer', CustomerController::class);
 Route::resource('/site', SiteController::class);
+
+Route::get('/record/{id}', [GetRecordController::class, 'getRecord']);
