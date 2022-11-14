@@ -40,7 +40,7 @@ class CustomerController extends Controller
     {
         // return Customer::all(['name', 'slug', 'email', 'mobile_number', 'address',  'is_verified'])
         // $customers = DB::table('customers')->simplePaginate(perPage: 1, columns: ['email'], page: 2);
-        $customers = Customer::paginate(perPage: 5, columns: ['email'], page: 1);
+        $customers = Customer::paginate(perPage: 5, columns: ['*'], page: 1);
 
 
 
@@ -62,7 +62,7 @@ class CustomerController extends Controller
         $fields = $request->validate([
             "name" => "required|min:3",
             "email" => "required|email|unique:customers,email",
-            "mobile_number" => "required|string|regex:/^[6789]{1}[0-9]{9}$/",
+            "mobile_number" => "required|string",
             "address" => "required|string",
         ]);
 
